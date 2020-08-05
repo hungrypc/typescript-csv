@@ -2,14 +2,16 @@ import { MatchReader } from './MatchReader'
 import { CsvFileReader } from './CsvFileReader'
 import { Summary } from './Summary'
 import { ConsoleReport } from './reportTargets/ConsoleReport'
-import { HtmlReport } from './reportTargets/HtmlReport'
 import { WinsAnalysis } from './analyzers/WinsAnalysis'
 
-// create an object that satisfies the DataReader interface
-const csvFileReader = new CsvFileReader('football.csv')
+// // create an object that satisfies the DataReader interface
+// const csvFileReader = new CsvFileReader('football.csv')
 
-// create an instance of MatchReader and pass in something satisfying DataReader interface
-const matchReader = new MatchReader(csvFileReader)
+// // create an instance of MatchReader and pass in something satisfying DataReader interface
+// const matchReader = new MatchReader(csvFileReader)
+// matchReader.load()
+
+const matchReader = MatchReader.fromCsv('football.csv')
 matchReader.load()
 
 const summary = new Summary(
